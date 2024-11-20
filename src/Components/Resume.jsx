@@ -65,15 +65,15 @@ export default function Resume() {
   };
 
   return (
-    <div className="flex h-fit pt-10">
+    <div className="md:flex h-fit pt-10 gap-8">
       {/* Sidebar */}
-      <div className="w-1/3 flex items-center text-white">
-        <div className="p-4 space-y-4 w-full">
+      <div className="md:w-1/3 flex items-center ">
+        <div className=" space-y-4 w-full">
           <button
             onClick={() => setActiveTab("experience")}
             className="flex items-center p-4 text-lg w-full border border-gray-600"
             style={
-              activeTab === "experience" ? { backgroundColor: textColor } : {}
+              activeTab === "experience" ? { backgroundColor: textColor ,color:"white"} : {}
             }
           >
             <FaBriefcase className="mr-2" /> Experience
@@ -82,7 +82,7 @@ export default function Resume() {
             onClick={() => setActiveTab("education")}
             className="flex items-center p-4 text-lg w-full border border-gray-600"
             style={
-              activeTab === "education" ? { backgroundColor: textColor } : {}
+              activeTab === "education" ? { backgroundColor: textColor ,color:"white"} : {}
             }
           >
             <FaGraduationCap className="mr-2" /> Education
@@ -90,7 +90,7 @@ export default function Resume() {
           <button
             onClick={() => setActiveTab("skills")}
             className="flex items-center p-4 text-lg w-full border border-gray-600"
-            style={activeTab === "skills" ? { backgroundColor: textColor } : {}}
+            style={activeTab === "skills" ? { backgroundColor: textColor ,color:"white"} : {}}
           >
             <FaStar className="mr-2" /> Skills
           </button>
@@ -98,7 +98,7 @@ export default function Resume() {
       </div>
 
       {/* Content */}
-      <div className="w-2/3 text-white p-8 min-h-[400px]">
+      <div className="md:w-2/3  min-h-[400px]">
         {activeTab === "experience" && (
           <div>
             <div className="bg-[#111] py-4 text-center mb-5">

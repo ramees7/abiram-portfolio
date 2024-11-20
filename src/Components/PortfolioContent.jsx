@@ -5,7 +5,7 @@ import "./Portfolio.css";
 import { FaSuitcase } from "react-icons/fa";
 
 export default function PortfolioContent() {
-  const { textColor } = useContext(ThemeContext);
+  const { theme, textColor } = useContext(ThemeContext);
   const [hoverDirection, setHoverDirection] = useState("");
 
   // Load the audio file
@@ -50,18 +50,18 @@ export default function PortfolioContent() {
   ];
 
   return (
-    <div className="bg-[#222] text-white p-8 md:px-20 min-h-full">
+    <div className={` ${theme === "dark" ? "bg-[#222] text-white" : "bg-[#e7e7e7] text-black"} p-8 md:px-20 min-h-full`}>
       <div className="text-center">
-        <h2 className="text-4xl font-bold mb-8 uppercase" >
+        <h2 className="text-4xl font-bold mb-8 uppercase">
           My <span style={{ color: textColor }}>Portfolio</span>
         </h2>
         <div
           className="flex justify-center items-center mb-6"
           style={{ color: textColor }}
         >
-          <span className="border-t-2 w-[40%]"></span>
+          <span className={`border-t-2 w-[40%] ${theme==="dark"?"":"border-gray-700"}`}></span>
           <FaSuitcase className="text-2xl mx-6" />
-          <span className="border-t-2 w-[40%]"></span>
+          <span className={`border-t-2 w-[40%] ${theme==="dark"?"":"border-gray-700"}`}></span>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -92,7 +92,7 @@ export default function PortfolioContent() {
               }`}
               style={{ backgroundColor: textColor }}
             >
-              <h3 className="text-xl font-bold text-white">{item.title}</h3>
+              <h3 className="text-xl font-bold ">{item.title}</h3>
             </div>
           </div>
         ))}

@@ -19,7 +19,11 @@ export default function ContactContent() {
   const { theme, textColor } = useContext(ThemeContext);
 
   return (
-    <div className="bg-[#222] text-white p-8 md:px-20 h-full">
+    <div
+      className={` p-8 h-full ${
+        theme === "dark" ? "bg-[#222] text-white" : "bg-[#e7e7e7] text-black"
+      }`}
+    >
       <div className="text-center">
         <h2 className="text-4xl font-bold mb-8 uppercase">
           Get <span style={{ color: textColor }}>in Touch</span>
@@ -28,14 +32,18 @@ export default function ContactContent() {
           className="flex justify-center items-center mb-6"
           style={{ color: textColor }}
         >
-          <span className="border-t-2 w-[40%]"></span>
+          <span className={`border-t-2 w-[40%] ${theme==="dark"?"":"border-gray-700"}`}></span>
           <IoIosMailOpen className="text-2xl mx-6" />
-          <span className="border-t-2 w-[40%]"></span>
+          <span className={`border-t-2 w-[40%] ${theme==="dark"?"":"border-gray-700"}`}></span>
         </div>
       </div>
       {/* Left Contact Info Section */}
       <div className="flex gap-6">
-        <div className="w-full md:w-1/3 bg-[#111] p-6 ">
+        <div
+          className={`w-full md:w-1/3  p-6 ${
+            theme === "dark" ? "bg-[#111]" : "bg-[#efe9e9]"
+          }`}
+        >
           <div className="space-y-4">
             <div>
               <h3
@@ -122,17 +130,17 @@ export default function ContactContent() {
                 variant="standard"
                 className="w-full"
                 InputLabelProps={{
-                  style: { color: "white" },
+                  style: { color: theme === "dark" ? "white" : "black" },
                 }}
                 InputProps={{
-                  style: { color: "white" },
+                  style: { color: theme === "dark" ? "white" : "black" },
                 }}
                 sx={{
                   "& .MuiInput-underline:before": {
-                    borderBottomColor: "white",
+                    borderBottomColor: theme === "dark" ? "white" : "black",
                   },
                   "& .MuiInput-underline:after": {
-                    borderBottomColor: textColor,
+                    borderBottomColor: theme === "dark" ? "white" : "black",
                   },
                 }}
               />
@@ -145,17 +153,17 @@ export default function ContactContent() {
                 variant="standard"
                 className="w-full"
                 InputLabelProps={{
-                  style: { color: "white" },
+                  style: { color: theme === "dark" ? "white" : "black" },
                 }}
                 InputProps={{
-                  style: { color: "white" },
+                  style: { color: theme === "dark" ? "white" : "black" },
                 }}
                 sx={{
                   "& .MuiInput-underline:before": {
-                    borderBottomColor: "white",
+                    borderBottomColor: theme === "dark" ? "white" : "black",
                   },
                   "& .MuiInput-underline:after": {
-                    borderBottomColor: textColor,
+                    borderBottomColor: theme === "dark" ? "white" : "black",
                   },
                 }}
               />
@@ -168,24 +176,24 @@ export default function ContactContent() {
                 variant="standard"
                 className="w-full"
                 InputLabelProps={{
-                  style: { color: "white" },
+                  style: { color: theme === "dark" ? "white" : "black" },
                 }}
                 InputProps={{
-                  style: { color: "white" },
+                  style: { color: theme === "dark" ? "white" : "black" },
                 }}
                 sx={{
                   "& .MuiInput-underline:before": {
-                    borderBottomColor: "white",
+                    borderBottomColor: theme === "dark" ? "white" : "black",
                   },
                   "& .MuiInput-underline:after": {
-                    borderBottomColor: textColor,
+                    borderBottomColor: theme === "dark" ? "white" : "black",
                   },
                 }}
               />
             </div>
             <button
               type="submit"
-              className=" text-black py-3 px-6 rounded-lg w-full text-lg font-semibold flex items-center justify-center"
+              className=" text-white py-3 px-6 rounded-lg w-full text-lg font-semibold flex items-center justify-center"
               style={{ backgroundColor: textColor }}
             >
               Send Message <IoIosMailOpen className="ml-2" />

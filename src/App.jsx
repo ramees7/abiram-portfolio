@@ -62,7 +62,7 @@ export default function App() {
             />
           </div>
 
-          <div className="col-span-2 grid md:grid-cols-2 py-7 pe-7 h-full gap-8">
+          <div className="col-span-2 grid md:grid-cols-2 py-7 md:pe-7 md:ps-0 px-7 md:h-full min-h-screen gap-8">
             {/* Greeting Section */}
             <div
               className={`col-span-1 flex justify-center items-center ${
@@ -89,7 +89,7 @@ export default function App() {
                 key={id}
                 className={`${
                   activeSection ? "hidden" : "block"
-                } col-span-1 flex justify-center items-center ${
+                } col-span-1 flex justify-center items-center h-full ${
                   theme === "dark"
                     ? "bg-[#222] text-white"
                     : "bg-[#e7e7e7] text-black"

@@ -1,4 +1,3 @@
-
 import { useContext, useRef, useState, useEffect } from "react";
 import { FaCog } from "react-icons/fa";
 import { FaDroplet } from "react-icons/fa6";

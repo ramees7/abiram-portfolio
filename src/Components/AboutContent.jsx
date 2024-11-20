@@ -3,17 +3,19 @@ import { ThemeContext } from "../Context/ThemeContext";
 import { ImProfile } from "react-icons/im";
 import { FaFilePdf, FaRegEdit, FaUserAlt } from "react-icons/fa";
 import Resume from "./Resume";
+// import CV from "../assets/CV.pdf"
 
 export default function AboutContent() {
   const { theme, textColor } = useContext(ThemeContext);
 
   return (
-    <div className="bg-[#222] text-white p-8 md:px-10 relative h-full">
+    <div
+      className={`${
+        theme === "dark" ? "bg-[#222] text-white" : "bg-[#e7e7e7] text-black"
+      } p-8 md:px-10 relative h-full`}
+    >
       <div className="border-b pb-10 border-b-gray-500">
-        <h2
-          className="text-4xl font-bold text-center mb-8 uppercase"
-          
-        >
+        <h2 className="text-4xl font-bold text-center mb-8 uppercase">
           ABOUT <span style={{ color: textColor }}>ME</span>
         </h2>
 
@@ -21,9 +23,17 @@ export default function AboutContent() {
           className="flex justify-center items-center mb-6"
           style={{ color: textColor }}
         >
-          <span className="border-t-2  w-[40%] "></span>
+          <span
+            className={`border-t-2 w-[40%] ${
+              theme === "dark" ? "" : "border-gray-700"
+            }`}
+          ></span>
           <ImProfile className="text-2xl mx-6 " />
-          <span className="border-t-2  w-[40%] "></span>
+          <span
+            className={`border-t-2 w-[40%] ${
+              theme === "dark" ? "" : "border-gray-700"
+            }`}
+          ></span>
         </div>
         <div className="flex items-center gap-2 font-semibold text-xl uppercase mb-3">
           <FaUserAlt />
@@ -75,20 +85,23 @@ export default function AboutContent() {
         </div>
 
         <div className="flex mt-8 gap-4">
-          <button
-            className=" px-6 py-3  font-semibold flex items-center gap-2 "
+          <a
+            // href={CV}
+            target="_blank"
+            download="My_Resume.pdf" 
+            className="md:px-6 px-2 py-3 text-sm md:text-base font-semibold flex items-center gap-2 text-white"
             style={{ backgroundColor: textColor }}
           >
             DOWNLOAD RESUME
             <FaFilePdf />
-          </button>
-          <button
-            className="bg-transparent border   px-6 py-3  font-semibold flex items-center gap-2  "
+          </a>
+          {/* <button
+            className="bg-transparent border  md:px-6 px-2  text-sm md:text-base font-semibold flex items-center gap-2  "
             style={{ border: `1px solid ${textColor}` }}
           >
             MY BLOG
             <FaRegEdit />
-          </button>
+          </button> */}
         </div>
       </div>
       <Resume />
