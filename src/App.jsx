@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import profileImage from "./assets/woman.jpg";
+import { useState, useEffect, useContext } from "react";
+import profileImage from "./assets/abhiram.jpg";
 import SettingsSidebar from "./Components/SettingsSidebar";
 import { ThemeContext } from "./Context/ThemeContext";
 import About from "./Components/About";
@@ -23,7 +23,7 @@ export default function App() {
   const toggleSection = (sectionId) =>
     setActiveSection((prev) => (prev === sectionId ? null : sectionId));
 
-  const roles = ["Flutter Developer", "Web Developer"];
+  const roles = ["Digital Marketer", "Performance Marketer"];
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [index, setIndex] = useState(0);
@@ -44,6 +44,7 @@ export default function App() {
   useEffect(() => {
     const interval = setInterval(handleTextTransition, 100);
     return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayText, isDeleting, index]);
 
   return (
@@ -70,8 +71,8 @@ export default function App() {
               }`}
             >
               <div className="uppercase text-center space-y-3">
-                <h2 className="md:text-2xl text-lg">Hi There ! I'm</h2>
-                <h1 className="md:text-6xl text-4xl font-[900]">Shinaf</h1>
+                <h2 className="md:text-2xl text-lg">Hi There ! I&apos;m</h2>
+                <h1 className="md:text-6xl text-4xl font-[900]">Abiram</h1>
                 <h2
                   className="md:text-3xl text-xl font-semibold"
                   style={{

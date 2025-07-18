@@ -1,53 +1,44 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { FaBriefcase, FaGraduationCap, FaStar } from "react-icons/fa";
 import { ThemeContext } from "../Context/ThemeContext";
 
 export default function Resume() {
   const [activeTab, setActiveTab] = useState("experience");
-  const { theme, textColor } = useContext(ThemeContext);
+  const { textColor } = useContext(ThemeContext);
 
   const experiences = [
     {
-      title: "Web Designer",
-      company: "Envato",
-      duration: "2015 - 2018",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      title: "Digital Marketing",
+      company: "Phew Interactive LLP",
+      duration: "2025 - Present",
+      description: "Worked as a Digital Marketing Specialist, focusing on Google Ads and Meta Ads.",
     },
     {
-      title: "Web Developer",
-      company: "Google",
-      duration: "2011 - 2015",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      title: "Community Manager",
-      company: "Adobe",
-      duration: "2007 - 2011",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      title: "Digital Marketing ",
+      company: "BQRAFT Education",
+      duration: "2024 - 2025",
+      description: "Worked as a Digital Marketing Intern, focusing on Google Ads and Meta Ads.",
     },
   ];
 
   const educations = [
     {
-      title: "Bachelor of Science in Computer Science",
-      institution: "University of XYZ",
-      duration: "2003 - 2007",
+      title: " Digital Marketing",
+      institution: "GD Academy Manjeri",
+      duration: "2024-2025",
+    },
+    {
+      title: "Plus Two ",
+      institution: "Rajas Higher Secondary",
+      duration: "2020-2022",
     },
   ];
 
-  const skills = [
-    { skill: "HTML", level: 5 },
-    { skill: "JavaScript", level: 4 },
-    { skill: "CSS", level: 4 },
-    { skill: "PHP", level: 3 },
-    { skill: "jQuery", level: 5 },
-    { skill: "AngularJS", level: 3 },
-    { skill: "WordPress", level: 4 },
-    { skill: "Joomla", level: 3 },
-    { skill: "Magento", level: 4 },
-    { skill: "Drupal", level: 5 },
-    { skill: "Adobe Photoshop", level: 4 },
-    { skill: "Adobe Illustrator", level: 3 },
+  const tools = [
+    { tool: "Google Search Console", level: 5 },
+    { tool: "Google Ads & Meta Ads", level: 5 },
+    { tool: "Google Analytics ", level: 5 },
+    { tool: "Google Tag Manager", level: 5 },
   ];
 
   const renderStars = (level) => {
@@ -67,13 +58,15 @@ export default function Resume() {
   return (
     <div className="md:flex h-fit pt-10 gap-8">
       {/* Sidebar */}
-      <div className="md:w-1/3 flex items-center ">
+      <div className="md:w-1/3 flex items-start ">
         <div className=" space-y-4 w-full">
           <button
             onClick={() => setActiveTab("experience")}
             className="flex items-center p-4 text-lg w-full border border-gray-600"
             style={
-              activeTab === "experience" ? { backgroundColor: textColor ,color:"white"} : {}
+              activeTab === "experience"
+                ? { backgroundColor: textColor, color: "white" }
+                : {}
             }
           >
             <FaBriefcase className="mr-2" /> Experience
@@ -82,17 +75,23 @@ export default function Resume() {
             onClick={() => setActiveTab("education")}
             className="flex items-center p-4 text-lg w-full border border-gray-600"
             style={
-              activeTab === "education" ? { backgroundColor: textColor ,color:"white"} : {}
+              activeTab === "education"
+                ? { backgroundColor: textColor, color: "white" }
+                : {}
             }
           >
             <FaGraduationCap className="mr-2" /> Education
           </button>
           <button
-            onClick={() => setActiveTab("skills")}
+            onClick={() => setActiveTab("tools")}
             className="flex items-center p-4 text-lg w-full border border-gray-600"
-            style={activeTab === "skills" ? { backgroundColor: textColor ,color:"white"} : {}}
+            style={
+              activeTab === "tools"
+                ? { backgroundColor: textColor, color: "white" }
+                : {}
+            }
           >
-            <FaStar className="mr-2" /> Skills
+            <FaStar className="mr-2" /> Tools
           </button>
         </div>
       </div>
@@ -143,18 +142,18 @@ export default function Resume() {
           </div>
         )}
 
-        {activeTab === "skills" && (
+        {activeTab === "tools" && (
           <div>
             <div className="bg-[#111] py-4 text-center mb-5">
               <h2 className="text-3xl font-bold " style={{ color: textColor }}>
-                Skills
+                Tools
               </h2>
             </div>
             <div className="grid grid-cols-2 gap-4 justify-between">
-              {skills.map((skill, index) => (
+              {tools.map((tool, index) => (
                 <div key={index} className="space-y-2">
-                  <h3 className="text-xl ">{skill.skill}</h3>
-                  <div className="flex">{renderStars(skill.level)}</div>
+                  <h3 className="text-xl ">{tool.tool}</h3>
+                  <div className="flex">{renderStars(tool.level)}</div>
                 </div>
               ))}
             </div>

@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "../Context/ThemeContext";
 import { IoIosMailOpen } from "react-icons/io";
 import {
-  FaSkype,
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaFacebook,
-  FaTwitter,
   FaLinkedin,
   FaGithub,
   FaInstagram,
@@ -14,10 +12,23 @@ import {
 import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
 import { TextField } from "@mui/material";
+import { SiX } from "react-icons/si";
 
 export default function ContactContent() {
   const { theme, textColor } = useContext(ThemeContext);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [comment, setComment] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const message = `Name: ${name}%0AEmail: ${email}%0AComment: ${comment}`;
+    const phoneNumber = "919037152849";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+
+    window.open(whatsappUrl, "_blank"); // Open WhatsApp in new tab
+  };
   return (
     <div
       className={` p-8 h-full ${
@@ -32,9 +43,17 @@ export default function ContactContent() {
           className="flex justify-center items-center mb-6"
           style={{ color: textColor }}
         >
-          <span className={`border-t-2 w-[40%] ${theme==="dark"?"":"border-gray-700"}`}></span>
+          <span
+            className={`border-t-2 w-[40%] ${
+              theme === "dark" ? "" : "border-gray-700"
+            }`}
+          ></span>
           <IoIosMailOpen className="text-2xl mx-6" />
-          <span className={`border-t-2 w-[40%] ${theme==="dark"?"":"border-gray-700"}`}></span>
+          <span
+            className={`border-t-2 w-[40%] ${
+              theme === "dark" ? "" : "border-gray-700"
+            }`}
+          ></span>
         </div>
       </div>
       {/* Left Contact Info Section */}
@@ -53,7 +72,7 @@ export default function ContactContent() {
                 PHONE
               </h3>
               <p className="flex items-center mt-2">
-                <FaPhoneAlt className="mr-2" /> +34 62 11 84 01
+                <FaPhoneAlt className="mr-2" /> +91 9037152849
               </p>
             </div>
             <div>
@@ -64,20 +83,10 @@ export default function ContactContent() {
                 EMAIL
               </h3>
               <p className="flex items-center mt-2">
-                <AiOutlineMail className="mr-2" /> you@yourwebsite.com
+                <AiOutlineMail className="mr-2" /> digitalabio09@gmail.com
               </p>
             </div>
-            <div>
-              <h3
-                className="text-lg font-semibold uppercase"
-                style={{ color: textColor }}
-              >
-                SKYPE
-              </h3>
-              <p className="flex items-center mt-2">
-                <FaSkype className="mr-2" /> linda.smith
-              </p>
-            </div>
+
             <div>
               <h3
                 className="font-semibold text-lg uppercase"
@@ -86,7 +95,7 @@ export default function ContactContent() {
                 ADDRESS
               </h3>
               <p className="flex items-center mt-2">
-                <FaMapMarkerAlt className="mr-2" /> Moscow, Russia
+                <FaMapMarkerAlt className="mr-2" /> Kottakal, Kerala
               </p>
             </div>
             <div>
@@ -96,12 +105,42 @@ export default function ContactContent() {
               >
                 Social Profiles
               </h3>
-              <div className="flex items-center gap-3 text-2xl mt-2">
-                <FaFacebook />
-                <FaTwitter />
-                <FaInstagram />
-                <FaLinkedin />
-                <FaGithub />
+              <div className="flex items-center gap-4 text-2xl mt-2">
+                <a
+                  href="https://www.instagram.com/abiodigital/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/abiram-nallat/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61568249744934"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebook />
+                </a>
+                <a
+                  href="https://x.com/abrrm_"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <SiX />
+                </a>
+                <a
+                  href="https://github.com/abiram-nallat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub />
+                </a>
               </div>
             </div>
           </div>
@@ -121,7 +160,7 @@ export default function ContactContent() {
           </div>
 
           {/* Contact Form */}
-          <form className="space-y-2">
+          <form className="space-y-2" onSubmit={handleSubmit}>
             <div className="flex items-center p-3 rounded-lg">
               <BsFillPersonFill className="text-xl mr-3 mt-5" />
               <TextField
@@ -129,6 +168,8 @@ export default function ContactContent() {
                 label="Your Name"
                 variant="standard"
                 className="w-full"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 InputLabelProps={{
                   style: { color: theme === "dark" ? "white" : "black" },
                 }}
@@ -151,6 +192,8 @@ export default function ContactContent() {
                 id="email"
                 label="Your Email"
                 variant="standard"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full"
                 InputLabelProps={{
                   style: { color: theme === "dark" ? "white" : "black" },
@@ -173,6 +216,8 @@ export default function ContactContent() {
               <TextField
                 id="comment"
                 label="Your Comment"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
                 variant="standard"
                 className="w-full"
                 InputLabelProps={{
