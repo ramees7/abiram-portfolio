@@ -15,7 +15,7 @@ export default function AboutContent() {
       } `}
     >
       <div className="border-b pb-10 border-b-gray-500">
-        <h2 className="text-4xl font-bold text-center mb-8 uppercase">
+        <h2 className="xl:text-4xl md:text-2xl text-3xl font-bold text-center mb-8 uppercase">
           ABOUT <span style={{ color: textColor }}>ME</span>
         </h2>
 

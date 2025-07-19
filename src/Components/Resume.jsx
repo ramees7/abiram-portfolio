@@ -15,7 +15,7 @@ export default function Resume() {
     },
     {
       title: "Digital Marketing ",
-      company: "BQRAFT Education",
+      company: "BQRAFT LLP",
       duration: "2024 - 2025",
       description: "Worked as a Digital Marketing Intern, focusing on Google Ads and Meta Ads.",
     },
@@ -58,7 +58,7 @@ export default function Resume() {
   return (
     <div className="md:flex h-fit pt-10 gap-8">
       {/* Sidebar */}
-      <div className="md:w-1/3 flex items-start ">
+      <div className="md:w-1/3 flex items-start">
         <div className=" space-y-4 w-full">
           <button
             onClick={() => setActiveTab("experience")}
@@ -97,7 +97,7 @@ export default function Resume() {
       </div>
 
       {/* Content */}
-      <div className="md:w-2/3  min-h-[400px]">
+      <div className="md:w-2/3  min-h-[400px]  md:mt-0 mt-5">
         {activeTab === "experience" && (
           <div>
             <div className="bg-[#111] py-4 text-center mb-5">

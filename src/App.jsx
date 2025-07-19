@@ -59,7 +59,7 @@ export default function App() {
             <img
               src={profileImage}
               alt="Profile"
-              className="h-full w-full object-cover"
+              className="h-full w-full xl:object-cover md:object-fill"
             />
           </div>
 
@@ -72,9 +72,9 @@ export default function App() {
             >
               <div className="uppercase text-center space-y-3">
                 <h2 className="md:text-2xl text-lg">Hi There ! I&apos;m</h2>
-                <h1 className="md:text-6xl text-4xl font-[900]">Abiram</h1>
+                <h1 className="xl:text-6xl lg:text-5xl text-4xl font-[900]">Abiram</h1>
                 <h2
-                  className="md:text-3xl text-xl font-semibold"
+                  className="xl:text-3xl  text-xl font-semibold"
                   style={{
                     color: textColor,
                     visibility: displayText ? "visible" : "hidden",

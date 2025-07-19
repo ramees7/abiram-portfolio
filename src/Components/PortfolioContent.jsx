@@ -89,10 +89,10 @@ export default function PortfolioContent() {
     <div
       className={` ${
         theme === "dark" ? "bg-[#222] text-white" : "bg-[#e7e7e7] text-black"
-      } p-8 md:px-20 min-h-full`}
+      } p-8  min-h-full`}
     >
       <div className="text-center">
-        <h2 className="text-4xl font-bold mb-8 uppercase">
+        <h2 className="xl:text-4xl md:text-2xl text-3xl  font-bold mb-8 uppercase">
           My <span style={{ color: textColor }}>Portfolio</span>
         </h2>
         <div
@@ -112,14 +112,14 @@ export default function PortfolioContent() {
           ></span>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 gap-4">
         {portfolioItems.map((item, index) => (
           <div
             key={index}
             onClick={() => setSelectedImage(item.img)}
             onMouseEnter={(e) => detectDirection(e)}
             onMouseLeave={() => setHoverDirection("")}
-            className="relative group overflow-hidden rounded-lg h-[350px]"
+            className="relative group overflow-hidden rounded-lg lg:h-[350px] h-[250px]"
           >
             <img
               src={item.img}

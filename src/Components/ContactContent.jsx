@@ -36,7 +36,7 @@ export default function ContactContent() {
       }`}
     >
       <div className="text-center">
-        <h2 className="text-4xl font-bold mb-8 uppercase">
+        <h2 className="xl:text-4xl md:text-2xl text-3xl  font-bold mb-8 uppercase">
           Get <span style={{ color: textColor }}>in Touch</span>
         </h2>
         <div
@@ -57,9 +57,9 @@ export default function ContactContent() {
         </div>
       </div>
       {/* Left Contact Info Section */}
-      <div className="flex gap-6">
+      <div className="lg:flex space-y-6 gap-6">
         <div
-          className={`w-full md:w-1/3  p-6 ${
+          className={`w-full lg:w-1/3  xl:p-6 lg:p-3 p-6 ${
             theme === "dark" ? "bg-[#111]" : "bg-[#efe9e9]"
           }`}
         >
@@ -105,7 +105,7 @@ export default function ContactContent() {
               >
                 Social Profiles
               </h3>
-              <div className="flex items-center gap-4 text-2xl mt-2">
+              <div className="flex items-center gap-4 xl:text-2xl text-xl mt-2">
                 <a
                   href="https://www.instagram.com/abiodigital/"
                   target="_blank"
@@ -147,7 +147,7 @@ export default function ContactContent() {
         </div>
 
         {/* Right Message Form Section */}
-        <div className="w-full md:w-2/3">
+        <div className="w-full lg:w-2/3">
           <div className="">
             <h2 className="text-lg font-bold mb-4 uppercase">
               Feel Free to Drop Me a Line
