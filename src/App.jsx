@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import profileImage from "./assets/abhiram.jpg";
+import profileImage from "./assets/abiram.jpg";
 import SettingsSidebar from "./Components/SettingsSidebar";
 import { ThemeContext } from "./Context/ThemeContext";
 import About from "./Components/About";
